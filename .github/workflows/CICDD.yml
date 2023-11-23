@@ -1,0 +1,38 @@
+name: CICD
+
+on:
+  push:
+    branches: [Erp-Service2]
+
+jobs:
+  build:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '18'
+      - name: Build Project
+        run: mvn clean install -DskipTests
+      - name: Login to docker hub
+        run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+      - name: Clear Docker build cache
+        run: docker builder prune -a -f
+      - name: Build docker image
+        run: docker build -t oussama020899/ouou --no-cache .
+      - name: Publish image to docker hub
+        run: docker push oussama020899/ouou:latest
+
+  deploy:
+    needs: build
+    runs-on: [aws-ec3]
+    steps:
+      - name: Pull Image from docker hub
+        run:  sudo docker pull oussama020899/ouou:latest
+      - name: sudo Delete old container
+        run:  sudo docker rm -f erpspringboot-test
+      - name: Run docker container
+        run:  sudo docker run -d -p 8080:8080 --name erpspringboot-test oussama020899/ouou
