@@ -15,7 +15,7 @@ public class testing {
     @RequestMapping(method = RequestMethod.GET)
     public String getAllProduit() {
         //r//eturn produitService.getAllProduit();
-        return  "I love u Baby <3 <3 ";
+        return  "I love u Baby <3 <3 <3 ";
     }
 
 
