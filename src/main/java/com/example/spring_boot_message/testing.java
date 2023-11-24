@@ -18,7 +18,10 @@ public class testing {
     @GetMapping("/hello")
     public String hello() {
         return "  ❤ ❤\uFE0F ❤\uFE0F ❤\uFE0F ❤ ❤ yassmina ❤ ❤\uFE0F ❤\uFE0F ❤\uFE0F ❤ ❤ ";
+    }   
+    @GetMapping("/sou")
+    public String siy() {
+        return "  ❤ ❤\uFE0F ❤\uFE0F ❤\uFE0F ❤ ❤ bonjour ya a7la hob f hyety ❤ ❤\uFE0F ❤\uFE0F ❤\uFE0F ❤ ❤ ";
     }
-
 
 }
