@@ -12,12 +12,12 @@ public class testing {
     @RequestMapping(method = RequestMethod.GET)
     public String getAllProduit() {
         //r//eturn produitService.getAllProduit();
-        return  "I love u Baby <3 <3 hh ";
+        return  "I love u Baby  hh ";
     }
 
     @GetMapping("/hello")
     public String hello() {
-        return "  ❤ ❤\uFE0F ❤\uFE0F ❤\uFE0F ❤ ❤ yassmina ❤ ❤\uFE0F ❤\uFE0F ❤\uFE0F ❤ ❤ ";
+        return "  ❤ ❤\uFE0F ❤\uFE0F  ❤\uFE0F ❤ ❤ yassmina ❤ ❤\uFE0F ❤\uFE0F ❤\uFE0F ❤ ❤ ";
     }   
     @GetMapping("/sou")
     public String siy() {
